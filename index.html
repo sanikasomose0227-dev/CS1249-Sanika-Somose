@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>Comic Collection Website</title>
+<meta charset="UTF-8">
+
+<style>
+
+/* Body Design */
+
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+    background:linear-gradient(to right,#f1d3d1,#c7efd4);
+}
+
+/* Header */
+
+header{
+    background:#222;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+header a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+header a:hover{
+    color:yellow;
+}
+
+/* Section */
+
+section{
+    width:80%;
+    margin:20px auto;
+    background:rgb(211, 165, 208);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgb(205, 200, 200);
+}
+
+/* Comic Articles */
+
+article{
+    text-align:center;
+    padding:15px;
+}
+
+article img{
+    width:200px;
+    border-radius:10px;
+    box-shadow:0 0 8px gray;
+}
+
+article img:hover{
+    transform:scale(1.05);
+    transition:0.5s;
+}
+
+/* Table */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    text-align:center;
+}
+
+th{
+    background:#333;
+    color:white;
+    padding:10px;
+}
+
+td{
+    padding:10px;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+/* Form */
+
+form{
+    width:60%;
+    margin:auto;
+}
+
+label{
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:5px;
+    border:1px solid gray;
+}
+
+/* Focus Effect */
+
+input:focus,
+textarea:focus,
+select:focus{
+    background:#ccd3d5;
+}
+
+/* Buttons */
+
+button{
+    background:#333;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:rgb(155, 116, 247);
+    transition:0.5s;
+}
+
+/* Footer */
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+footer a{
+    color:yellow;
+    text-decoration:none;
+}
+
+</style>
+
+<script>
+
+function checkForm(form)
+{
+
+    /* Pattern for only letters */
+
+    let letterPattern = /^[A-Za-z]+$/;
+
+    /* Username Validation */
+
+    if(form.username.value == "")
+    {
+        alert("Username cannot be blank!");
+        form.username.focus();
+        return false;
+    }
+
+    if(!letterPattern.test(form.username.value))
+    {
+        alert("Username must contain only letters!");
+        form.username.focus();
+        return false;
+    }
+
+    /* Name Validation */
+
+    if(form.name.value == "")
+    {
+        alert("Name cannot be blank!");
+        form.name.focus();
+        return false;
+    }
+
+    if(!letterPattern.test(form.name.value))
+    {
+        alert("Name must contain only letters!");
+        form.name.focus();
+        return false;
+    }
+
+    /* Password Validation */
+
+    if(form.pwd1.value == "")
+    {
+        alert("Password cannot be blank!");
+        form.pwd1.focus();
+        return false;
+    }
+
+    /* Confirm Password Check */
+
+    if(form.pwd1.value != form.pwd2.value)
+    {
+        alert("Passwords do not match!");
+        form.pwd2.focus();
+        return false;
+    }
+
+    /* Password Length */
+
+    if(form.pwd1.value.length < 6)
+    {
+        alert("Password must contain at least 6 characters!");
+        form.pwd1.focus();
+        return false;
+    }
+
+    /* Password Number Check */
+
+    let numberPattern = /[0-9]/;
+
+    if(!numberPattern.test(form.pwd1.value))
+    {
+        alert("Password must contain at least one number!");
+        form.pwd1.focus();
+        return false;
+    }
+
+    /* Password Uppercase Check */
+
+    let upperPattern = /[A-Z]/;
+
+    if(!upperPattern.test(form.pwd1.value))
+    {
+        alert("Password must contain at least one uppercase letter!");
+        form.pwd1.focus();
+        return false;
+    }
+
+    /* Password Lowercase Check */
+
+    let lowerPattern = /[a-z]/;
+
+    if(!lowerPattern.test(form.pwd1.value))
+    {
+        alert("Password must contain at least one lowercase letter!");
+        form.pwd1.focus();
+        return false;
+    }
+
+    alert("Form Submitted Successfully!");
+
+    return true;
+}
+
+</script>
+
+</head>
+
+<body id="top">
+
+<!-- Header -->
+
+<header>
+
+<h1>Comic Collection Website</h1>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#comics">Comics</a>
+<a href="#compare">Comparison</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- Home Section -->
+
+<section id="home">
+
+<h2>About Our Comic Store</h2>
+
+<p>
+Welcome to the Comic Collection Website.
+Explore the most popular superhero comics and request your favorite comic online.
+</p>
+
+</section>
+
+<!-- Comics Section -->
+
+<section id="comics">
+
+<h2 align="center">Popular Comics</h2>
+
+<article>
+
+<h3>Spider-Man</h3>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSz0UNQpXc-lW_K3ZYfPINZZ7lZI57sF4e6g&s">
+
+<ul type="none">
+<li>Publisher: Marvel</li>
+<li>First Appearance: 1962</li>
+<li>Genre: Superhero</li>
+</ul>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>Batman</h3>
+
+<img src="https://m.media-amazon.com/images/I/91WdjOE3zVL._AC_UF1000,1000_QL80_.jpg">
+
+<ul type="none">
+<li>Publisher: DC Comics</li>
+<li>First Appearance: 1939</li>
+<li>Genre: Superhero</li>
+</ul>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>Iron Man</h3>
+
+<img src="https://m.media-amazon.com/images/I/61udNZ5VsWL._UF1000,1000_QL80_.jpg">
+
+<ul type="none">
+<li>Publisher: Marvel</li>
+<li>First Appearance: 1963</li>
+<li>Genre: Superhero</li>
+</ul>
+
+<meter value="9" min="0" max="10"></meter>
+Popularity
+
+</article>
+
+</section>
+
+<!-- Comparison Table -->
+
+<section id="compare">
+
+<h2 align="center">Comic Comparison Table</h2>
+
+<table border="1">
+
+<tr>
+<th>Comic</th>
+<th>Publisher</th>
+<th>First Appearance</th>
+</tr>
+
+<tr>
+<td>Spider-Man</td>
+<td>Marvel</td>
+<td>1962</td>
+</tr>
+
+<tr>
+<td>Batman</td>
+<td>DC Comics</td>
+<td>1939</td>
+</tr>
+
+<tr>
+<td>Iron Man</td>
+<td>Marvel</td>
+<td>1963</td>
+</tr>
+
+</table>
+
+</section>
+
+<!-- Contact Form -->
+
+<section id="contact">
+
+<h2 align="center">Comic Request Form</h2>
+
+<form onsubmit="return checkForm(this);">
+
+<label>Username:</label>
+
+<input 
+type="text" 
+name="username"
+pattern="[A-Za-z]+"
+title="Only letters allowed">
+
+<label>Password:</label>
+
+<input 
+type="password" 
+name="pwd1">
+
+<label>Confirm Password:</label>
+
+<input 
+type="password" 
+name="pwd2">
+
+<label>Name:</label>
+
+<input 
+type="text" 
+name="name"
+pattern="[A-Za-z]+"
+title="Only letters allowed">
+
+<label>Email:</label>
+
+<input 
+type="email" 
+name="email">
+
+<label>Select Comic:</label>
+
+<select name="comic">
+
+<option>Spider-Man</option>
+<option>Batman</option>
+<option>Iron Man</option>
+
+</select>
+
+<label>Quantity:</label>
+
+<input 
+type="number" 
+name="quantity">
+
+<label>Delivery Date:</label>
+
+<input 
+type="date" 
+name="delivery">
+
+<label>Feedback:</label>
+
+<textarea rows="4" cols="30" name="feedback"></textarea>
+
+<br>
+
+<button type="submit">Submit</button>
+
+<button type="reset">Reset</button>
+
+</form>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<p>Comic Collection Project</p>
+
+<a href="#top">Back to Top</a>
+
+</footer>
+
+</body>
+</html>
